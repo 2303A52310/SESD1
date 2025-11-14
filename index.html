@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Swadisth Meals – Tiffin Delivery Service</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    :root {
+      --primary: #f57f17; /* saffron */
+      --primary-dark: #e65100;
+      --accent: #2e7d32;  /* green */
+      --light-bg: #fff8e1;
+      --text: #333;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background-color: #fafafa;
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      color: #fff;
+      padding: 1rem 1.5rem;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .nav-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .logo {
+      font-size: 1.4rem;
+      font-weight: bold;
+    }
+
+    .tagline {
+      font-size: 0.9rem;
+      opacity: 0.9;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .btn {
+      padding: 0.5rem 1rem;
+      border-radius: 999px;
+      border: 2px solid #fff;
+      background: transparent;
+      color: #fff;
+      cursor: pointer;
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: 0.2s ease;
+    }
+
+    .btn:hover {
+      background: #fff;
+      color: var(--primary-dark);
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1.5rem 1rem 3rem;
+    }
+
+    section {
+      margin-bottom: 2.5rem;
+    }
+
+    h1, h2, h3 {
+      color: var(--primary-dark);
+      margin-bottom: 0.75rem;
+    }
+
+    .hero {
+      background: var(--light-bg);
+      border-radius: 1rem;
+      padding: 1.5rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      margin-top: 1rem;
+    }
+
+    .hero p {
+      margin-bottom: 1rem;
+    }
+
+    .hero .highlight {
+      font-weight: bold;
+      color: var(--accent);
+    }
+
+    .btn-whatsapp {
+      background: #25d366;
+      border-color: #25d366;
+      color: #fff;
+    }
+
+    .btn-whatsapp:hover {
+      background: #1ebe5a;
+      color: #fff;
+    }
+
+    .section-header {
+      margin-bottom: 1rem;
+      border-left: 4px solid var(--primary);
+      padding-left: 0.5rem;
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+      border-radius: 0.75rem;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    }
+
+    th, td {
+      padding: 0.7rem 0.9rem;
+      border-bottom: 1px solid #eee;
+      font-size: 0.9rem;
+    }
+
+    th {
+      background: var(--primary);
+      color: #fff;
+      text-align: left;
+      font-size: 0.95rem;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    .price {
+      font-weight: bold;
+    }
+
+    .plans {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+    }
+
+    .plan-card {
+      background: #fff;
+      border-radius: 0.9rem;
+      padding: 1rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+      border: 1px solid #ffe0b2;
+    }
+
+    .plan-price {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: var(--accent);
+      margin: 0.3rem 0;
+    }
+
+    .plan-card small {
+      font-size: 0.8rem;
+      color: #777;
+    }
+
+    ul {
+      margin-left: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    li {
+      margin-bottom: 0.3rem;
+    }
+
+    .features-list li::marker {
+      color: var(--accent);
+    }
+
+    .service-areas {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+    }
+
+    .area-card {
+      background: #fff;
+      border-radius: 0.9rem;
+      padding: 1rem;
+      border: 1px dashed var(--accent);
+    }
+
+    .area-name {
+      font-weight: bold;
+      margin-bottom: 0.3rem;
+    }
+
+    .area-emoji {
+      font-size: 1.4rem;
+      margin-right: 0.3rem;
+    }
+
+    .contact-box {
+      background: var(--light-bg);
+      border-radius: 1rem;
+      padding: 1.2rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      font-size: 0.95rem;
+    }
+
+    .contact-row {
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-label {
+      font-weight: bold;
+      width: 110px;
+      display: inline-block;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.8rem;
+      background: #fff;
+      border-top: 1px solid #eee;
+      color: #777;
+    }
+
+    footer span {
+      display: block;
+      margin-top: 0.2rem;
+    }
+
+    @media (max-width: 600px) {
+      .nav-container {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .contact-label {
+        width: 90px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav-container">
+      <div>
+        <div class="logo">Swadisth Meals</div>
+        <div class="tagline">Ghar jaisa khana in Warangal &amp; Nashik</div>
+      </div>
+      <div class="nav-actions">
+        <a class="btn" href="tel:+91-98765-43210">Call Now</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero / Intro -->
+    <section class="hero" id="about">
+      <h1>Home-style Tiffin, Without App Commissions</h1>
+      <p>
+        In growing Indian towns like <span class="highlight">Warangal</span> and
+        <span class="highlight">Nashik</span>, many local tiffin and home-meal
+        providers want to reach customers directly, without paying high commissions
+        to large food delivery apps. <strong>Swadisth Meals</strong> connects you
+        with these trusted local kitchens so you can enjoy fresh, ghar jaisa khana
+        every day.
+      </p>
+      <p>
+        Choose from daily, weekly or monthly tiffin plans with transparent rupee
+        pricing and reliable doorstep delivery.
+      </p>
+      <a class="btn btn-whatsapp" href="https://wa.me/919876543210" target="_blank">
+        Order on WhatsApp
+      </a>
+    </section>
+
+    <!-- Daily Menu -->
+    <section id="menu">
+      <div class="section-header">
+        <h2>Today’s Menu</h2>
+        <p>Freshly prepared meals for lunch and dinner</p>
+      </div>
+
+      <div class="menu-grid">
+        <!-- Veg Tiffin -->
+        <div>
+          <h3>Veg Tiffin</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Item</th>
+                <th>Description</th>
+                <th>Price (₹)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Classic Veg Thali</td>
+                <td>2 curries, dal, rice, 4 phulkas, salad &amp; pickle</td>
+                <td class="price">120</td>
+              </tr>
+              <tr>
+                <td>South Indian Mini Meal</td>
+                <td>Lemon rice / tamarind rice, curd rice &amp; papad</td>
+                <td class="price">90</td>
+              </tr>
+              <tr>
+                <td>Healthy Millet Bowl</td>
+                <td>Jowar / bajra khichdi with seasonal veggies</td>
+                <td class="price">130</td>
+              </tr>
+              <tr>
+                <td>Office Lunch Box</td>
+                <td>Dry sabzi, dal, 3 rotis &amp; jeera rice</td>
+                <td class="price">110</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Non-Veg Tiffin -->
+        <div>
+          <h3>Non-Veg Tiffin</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Item</th>
+                <th>Description</th>
+                <th>Price (₹)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Chicken Curry Meal</td>
+                <td>Home-style chicken curry, rice, 3 rotis &amp; salad</td>
+                <td class="price">160</td>
+              </tr>
+              <tr>
+                <td>Egg Curry Tiffin</td>
+                <td>Egg curry, jeera rice, 3 rotis &amp; salad</td>
+                <td class="price">130</td>
+              </tr>
+              <tr>
+                <td>Fish Fry Meal (Limited)</td>
+                <td>Fried fish, rasam, rice &amp; chutney</td>
+                <td class="price">190</td>
+              </tr>
+              <tr>
+                <td>Sunday Special Biryani</td>
+                <td>Hyderabadi-style chicken biryani with raita</td>
+                <td class="price">210</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Plans & Pricing -->
+    <section id="plans">
+      <div class="section-header">
+        <h2>Plans &amp; Pricing</h2>
+        <p>Simple, transparent rupee pricing with free delivery in select areas</p>
+      </div>
+      <div class="plans">
+        <div class="plan-card">
+          <h3>Daily Tiffin</h3>
+          <p class="plan-price">₹120 / meal</p>
+          <p>Perfect for days when you want fresh home-style food without cooking.</p>
+          <small>Order by 10:00 AM for lunch and 6:00 PM for dinner.</small>
+        </div>
+        <div class="plan-card">
+          <h3>Weekly Plan</h3>
+          <p class="plan-price">₹699 / week</p>
+          <p>5 working days of lunch or dinner tiffins delivered to your doorstep.</p>
+          <small>Veg &amp; non-veg combinations available.</small>
+        </div>
+        <div class="plan-card">
+          <h3>Monthly Plan</h3>
+          <p class="plan-price">₹2599 / month</p>
+          <p>Best value for students and working professionals staying away from home.</p>
+          <small>Includes 24 tiffins per month with flexible pause option.</small>
+        </div>
+      </div>
+      <p style="margin-top:0.8rem;font-size:0.9rem;">
+        <strong>Free delivery</strong> in select areas of Warangal and Nashik. A small delivery fee may apply for distant locations.
+      </p>
+    </section>
+
+    <!-- Why Swadisth Meals -->
+    <section id="features">
+      <div class="section-header">
+        <h2>Why Swadisth Meals?</h2>
+      </div>
+      <ul class="features-list">
+        <li>Home-style cooking by trusted local tiffin providers.</li>
+        <li>Fresh ingredients sourced daily from local markets.</li>
+        <li>No hidden delivery fees or app commissions.</li>
+        <li>Flexible daily, weekly and monthly plans.</li>
+        <li>Option to pause your plan during travel or holidays.</li>
+        <li>Simple WhatsApp ordering and quick confirmations.</li>
+      </ul>
+    </section>
+
+    <!-- Service Areas -->
+    <section id="areas">
+      <div class="section-header">
+        <h2>Service Areas</h2>
+        <p>Currently serving major localities in Warangal &amp; Nashik</p>
+      </div>
+      <div class="service-areas">
+        <div class="area-card">
+          <div class="area-name">
+            <span class="area-emoji">📍</span>Warangal
+          </div>
+          <p>Hanamkonda, Kazipet, Subedari, LB Nagar and nearby colonies.</p>
+        </div>
+        <div class="area-card">
+          <div class="area-name">
+            <span class="area-emoji">📍</span>Nashik
+          </div>
+          <p>College Road, Gangapur Road, Panchavati, Indira Nagar and nearby areas.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <div class="section-header">
+        <h2>Contact &amp; Timings</h2>
+      </div>
+      <div class="contact-box">
+        <div class="contact-row">
+          <span class="contact-label">Phone:</span>
+          <a href="tel:+91-98765-43210">+91-98765-43210</a>
+        </div>
+        <div class="contact-row">
+          <span class="contact-label">Email:</span>
+          <a href="mailto:swadisthmeals@example.com">swadisthmeals@example.com</a>
+        </div>
+        <div class="contact-row">
+          <span class="contact-label">Timings:</span>
+          8:00 AM – 9:00 PM (IST)
+        </div>
+        <div class="contact-row">
+          <span class="contact-label">Note:</span>
+          Order at least <strong>2 hours in advance</strong> for lunch or dinner delivery.
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div>© 2025 Swadisth Meals. All rights reserved.</div>
+    <span>Built with the help of a Large Language Model (LLM) and hosted on GitHub Pages.</span>
+  </footer>
+</body>
+</html>
